@@ -36,7 +36,7 @@ p {
   display: flex;
   justify-items: center;
   background: url(../images/pattern-background-mobile.svg);
-
+background-repeat:no-repeat;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -49,6 +49,7 @@ p {
   height: 45rem;
   border-radius: 18px;
   overflow: hidden;
+  transform:scale(1.2);
 }
 .grid1x2 {
   transform: scale(0.95);
