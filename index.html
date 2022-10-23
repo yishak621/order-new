@@ -1,50 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta lang="en" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--styles-->
     <link rel="stylesheet" href="style.css" />
+    <!--Google fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&display=swap"
       rel="stylesheet"
     />
-    <title>Document</title>
+    <title>order summary</title>
   </head>
   <body>
+    <!--main container-->
     <div class="center">
-      <div class="grid1x2">
-        <div class="picture">
-          <picture>
-            <img src="images/illustration-hero.svg" alt="" />
-          </picture>
-        </div>
-        <div class="order">
-          <h3>Order Summary</h3>
-          <p>
-            you can now listen to millions of songs,audiobooks and podcasts on
-            any device anywhere you like!
-          </p>
-          <div class="sub">
-            <span class="icon--container">
-              <img src="images/icon-music.svg" alt="" />
-            </span>
-            <div class="annual">
-              <div class="head"><h4>Annual plan</h4></div>
-              <div class="price">$59.99/year</div>
+      <main>
+        <!--grid1x2-->
+        <div class="grid1x2">
+          <div class="picture">
+            <picture>
+              <img src="images/illustration-hero.svg" alt="dancing girl" />
+            </picture>
+          </div>
+          <div class="order">
+            <h1>Order Summary</h1>
+            <p>
+              You can now listen to millions of songs, audiobooks and podcasts
+              on any device anywhere you like!
+            </p>
+            <div class="sub-flex">
+              <div class="sub">
+                <span class="icon--container">
+                  <img
+                    class="music_icon"
+                    src="./images/icon-music.svg"
+                    alt=""
+                  />
+                </span>
+                <div class="annual">
+                  <div class="head"><h4 class="head_text">Annual plan</h4></div>
+                  <div class="price">$59.99/year</div>
+                </div>
+              </div>
+              <div class="link">
+                <a href="#">Change</a>
+              </div>
             </div>
-            <div class="link">
-              <a href="#">Change</a>
+
+            <div class="footer">
+              <button class="btn proceed">Proceed to Payment</button>
+              <button class="btn cancel">Cancel order</button>
             </div>
           </div>
-          <div class="footer">
-            <button class="btn proceed">Proceed to Payment</button>
-            <button class="btn cancel">Cancel order</button>
-          </div>
         </div>
-      </div>
+      </main>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>

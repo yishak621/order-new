@@ -1,20 +1,80 @@
+/*general parameters*/
 html {
   font-size: 62.5%;
 }
 body {
-  font-family: "Red Hat Display", sans-serif;
+  font-family: 'Red Hat Display', sans-serif;
+  margin: 0;
+}
+/*animations*/
+@keyframes music {
+  0% {
+    border: 2px solid rgb(61, 53, 48);
+    transform: rotate(0deg);
+  }
+  10% {
+    border: 2px solid rgb(217, 210, 223);
+    transform: rotate(45deg);
+  }
+  25% {
+    border: 2px solid rgb(128, 9, 0);
+    transform: rotate(90deg);
+  }
+  35% {
+    border: 2px solid rgb(28, 30, 28);
+    transform: rotate(135deg);
+  }
+  50% {
+    border: 2px solid rgb(233, 22, 229);
+    transform: rotate(180deg);
+  }
+  65% {
+    border: 2px solid rgb(194, 232, 23);
+    transform: rotate(225deg);
+  }
+  75% {
+    border: 2px solid rgb(0, 83, 128);
+    transform: rotate(270deg);
+  }
+  90% {
+    border: 2px solid rgb(128, 58, 0);
+    transform: rotate(315deg);
+  }
+  100% {
+    border: 2px solid rgb(102, 128, 0);
+    transform: rotate(360deg);
+  }
+}
+@keyframes svg {
+  0% {
+    transform: scale(1.03);
+  }
+  30% {
+    transform: scale(1.05);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+  70% {
+    transform: scale(1.03);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 /*color--pallete*/
 :root {
   --color-primary: hsl(245, 75%, 52%);
   --color-secondary: hsl(203, 68%, 96%);
   --color-headings: hsl(223, 47%, 23%);
-  --color-third: hsl(225, 100%, 98%);
+  --color-third: hsl(225, 100%, 94%);
   --color-forth: hsl(224, 23%, 55%);
+  --color-fifth: rgba(202, 213, 241, 0.3);
+  --color-blue: hsl(225, 100%, 98%);
 }
 /*Typography*/
 
-h3 {
+h1 {
   color: var(--color-headings);
   font-size: 1.8rem;
   font-weight: 800;
@@ -23,10 +83,11 @@ h3 {
 }
 
 h4 {
+  font-size: 1.2rem;
   font-weight: 800;
 }
 p {
-  font-size: 16px;
+  font-size: 1.4rem;
   color: var(--color-forth);
   word-spacing: 0.05cm;
   line-height: 1.4;
@@ -35,40 +96,68 @@ p {
 .center {
   display: flex;
   justify-items: center;
-  background: url(../images/pattern-background-mobile.svg);
-background-repeat:no-repeat;
+  background: url(./images/pattern-background-mobile.svg) no-repeat;
+  background-size: contain;
+  background-color: var(--color-blue);
+
   justify-content: center;
   align-items: center;
   height: 100vh;
   width: 100vw;
 }
+@media screen and (min-width: 800px) {
+  .center {
+    display: flex;
+    justify-items: center;
+    background: url(./images/pattern-background-desktop.svg) no-repeat top;
+    background-size: contain;
+    background-position-y: -30%;
+    background-color: var(--color-secondary);
+
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    max-width: 100vw;
+  }
+}
 .grid1x2 {
   display: grid;
   grid-template-rows: 35% 65%;
-  width: 25rem;
-  height: 45rem;
+  grid-template-columns: 34rem;
+
   border-radius: 18px;
   overflow: hidden;
-  transform:scale(1.2);
-}
-.grid1x2 {
-  transform: scale(0.95);
-}
 
+  box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.1); /*box-shadow: h-offset v-offset blur spread color */
+  transition: all 0.5s;
+}
+.grid1x2:hover {
+  transform: scale(1.03);
+}
+/*SVG picture*/
+.picture {
+  transition: all 0.9s;
+  cursor: grab;
+  animation: svg 1s infinite ease-in-out;
+}
+.picture:hover {
+  transform: scale(1.05);
+}
 img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
 .order {
   text-align: center;
-  background: var(--color-third);
-  padding: 2rem;
-  padding-top: 1rem;
+  background: #fff;
+  padding: 1rem 3.5rem;
 }
+/*annual plan */
 .sub {
   display: flex;
-  background: var(--color-secondary);
+
   justify-content: center;
   align-items: center;
   gap: 20px;
@@ -78,17 +167,16 @@ img {
   height: 7rem;
 }
 .icon--container {
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: 35px;
   border-radius: 100%;
+  animation: music 0.9s infinite ease-in-out;
 }
-.icon {
-  width: 20px;
-  height: 20px;
-}
+
 .link {
   color: blue;
   font-weight: 800;
+  font-size: 1.2rem;
   text-decoration: underline;
   outline: 0;
 }
@@ -96,23 +184,38 @@ img {
   color: rgb(52, 52, 245);
   opacity: 0.8;
 }
+.sub-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 0 0.5rem;
+  margin-bottom: 0.7rem;
+  padding: 0rem 1rem;
+  background-color: var(--color-fifth);
+  border-radius: 10px;
+}
 .annual {
   display: flex;
   font-weight: 500;
   margin-right: 10px;
   flex-direction: column;
   gap: 0;
+  transition: all 1s;
 }
 
 .price {
   position: relative;
   bottom: 15px;
   color: var(--color-forth);
+  font-size: 1.2rem;
 }
 .footer {
   display: flex;
   flex-direction: column;
 }
+/*buttons*/
 .btn {
   outline: 0;
   border: 0;
@@ -121,7 +224,7 @@ img {
   box-sizing: border-box;
   white-space: nowrap;
 
-  font-size: 1rem;
+  font-size: 1.1rem;
   text-align: center;
   font-weight: 800;
   cursor: pointer;
@@ -129,28 +232,17 @@ img {
 
 .proceed {
   color: #fff;
-
-  border-radius: 5px;
+  box-shadow: 0 8px 10px 5px rgba(0, 0, 0, 0.1); /*box-shadow: h-offset v-offset blur spread color */
+  border-radius: 10px;
   background-color: var(--color-primary);
 }
 .proceed:hover {
   background-color: hsl(245, 85%, 61%);
 }
 .cancel {
-  background-color: var(--color-third);
+  background-color: transparent;
   color: var(--color-forth);
 }
 .cancel:hover {
   color: hsl(224, 59%, 44%);
-}
-@media screen and (min-width: 800px) {
-  .center {
-    display: flex;
-    justify-items: center;
-    background: url(../images/pattern-background-desktop.svg);
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    max-width: 100vw;
-  }
 }
