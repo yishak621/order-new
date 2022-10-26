@@ -33,7 +33,7 @@ window.addEventListener('DOMContentLoaded', showPlan(currentItem));
 
 link.addEventListener('click', function () {
   currentItem++;
-  if (currentItem > subscribe.length) {
+  if (currentItem > subscribe.length-1) {
     currentItem = 0;
   }
   showPlan(currentItem);
